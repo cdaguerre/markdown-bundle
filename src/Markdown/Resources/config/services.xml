@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="markdown.converter.class">Markdown\Converter\MarkdownConverter</parameter>
+        <parameter key="markdown.twig.extension.class">Markdown\Twig\MarkdownExtension</parameter>
+    </parameters>
+
+    <services>
+        <service id="markdown.converter" class="%markdown.converter.class%" />    
+
+        <service id="markdown.twig.extension" class="%markdown.twig.extension.class%">
+            <argument>%markdown.converter.class%</argument>
+            <tag name="twig.extension" />
+        </service>
+
+    </services>
+</container>
