@@ -10,7 +10,7 @@ class MarkdownConverter implements MarkdownConverterInterface
     /**
      * {@inheritdoc}
      */
-    public static function htmlToMarkdown($html)
+    public function htmlToMarkdown($html)
     {
         $markdown = new HTML_To_Markdown($html);
 
@@ -20,7 +20,7 @@ class MarkdownConverter implements MarkdownConverterInterface
     /**
      * {@inheritdoc}
      */
-    public static function markdownToHtml($markdown)
+    public function markdownToHtml($markdown)
     {
         $html = MarkdownExtra::defaultTransform($markdown);
 
